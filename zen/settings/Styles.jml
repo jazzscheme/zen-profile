@@ -1,0 +1,44 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Styles-Preferences
+;;;
+
+
+(data jazz.ide.data.styles
+
+
+#; ;; dark
+(form
+  (<Styles-Preferences>
+    (<Text-Style-Preferences> name: Text-Base font: {Font Label} color: {Color DM-Text-Primary})
+    (<Text-Style-Preferences> name: Text-User font: {Font Label-User} color: {Color DM-Text-Primary})
+    (<Text-Style-Preferences> name: Code-Base font: {Font Code} color: {Color DM-Text-Primary})
+    (<Text-Style-Preferences> name: Console-Banner font: {Font Code} color: {Color White})
+    (<Text-Style-Preferences> name: Console-Prompt font: {Font Code} color: {Color DM-Highlight-1})
+    (<Text-Style-Preferences> name: Console-Entry font: {Font Code} color: {Color DM-Highlight-2})
+    (<Text-Style-Preferences> name: Console-Input font: {Font Code} color: {Color DM-Highlight-1})
+    (<Text-Style-Preferences> name: Console-Output font: {Font Code} color: {Color DM-Highlight-3})
+    (<Text-Style-Preferences> name: Text-Title font: {Font Code} color: {Color DM-Highlight-4})
+    (<Text-Style-Preferences> name: Text-Comment font: {Font Code} color: {Color DM-Code-Comments})
+    (<Text-Style-Preferences> name: Text-Declaration-Keyword font: {Font Code} color: {Color DM-Code-Comments})
+    (<Text-Style-Preferences> name: Text-Declaration font: {Font Code} color: {Color DM-Code-Defined})
+    (<Text-Style-Preferences> name: Text-Documented-Declaration font: {Font Code} color: {Color DM-Code-Defined})
+    (<Text-Style-Preferences> name: Text-Undocumented-Declaration font: {Font Code} color: {Color DM-Code-Defined})
+    (<Text-Style-Preferences> name: Text-Definition font: {Font Code} color: {Color DM-Code-Defined})
+    (<Text-Style-Preferences> name: Text-Literal font: {Font Code} color: {Color DM-Code-Data})
+    (<Text-Style-Preferences> name: Text-Char font: {Font Code} color: {Color DM-Code-Data})
+    (<Text-Style-Preferences> name: Text-Number font: {Font Code} color: {Color DM-Code-Data})
+    (<Text-Style-Preferences> name: Text-Boolean font: {Font Code} color: {Color DM-Code-Data})
+    (<Text-Style-Preferences> name: Text-String font: {Font Code} color: {Color DM-Code-Data})
+    (<Text-Style-Preferences> name: Text-Delimited-String font: {Font Code} color: {Color DM-Code-Data})
+    (<Text-Style-Preferences> name: Text-Syntax-String font: {Font Code} color: {Color DM-Code-Data})
+    (<Text-Style-Preferences> name: Text-Named-String font: {Font Code} color: {Color DM-Code-Data})
+    (<Text-Style-Preferences> name: Text-Quotation font: {Font Code} color: {Color DM-Code-Data})
+    
+    ))
+
+(form
+  (<Styles-Preferences>
+    (<Text-Style-Preferences> name: Text-Delimited-String color: {Color Black}))))

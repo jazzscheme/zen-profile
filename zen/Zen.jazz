@@ -1,0 +1,311 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Profile
+;;;
+
+
+;; tanzoo
+
+
+;; i should be able to scrap a lot (all?) zen:define-variable-override
+
+
+;; could mu.scm create the architecture (and product!?)
+;; and then relaunch gsc (was it what the old build.scm
+;; was doing?)
+
+
+;; think of mu as build system for pure gambit
+;; files. and loading zen.o1 is like loading
+;; a precompiled header
+
+;; OMG noooooooooo i don't want to go there
+;; should i only consider the separation of
+;; what is the zen runtime vs zen as a precompiled
+;; header of syntax enabling the zen language
+
+
+;; ahhh i also want zen to 100% support 100% of all gambit
+;; so embrace define-runtime-syntax and define-runtime-macro
+
+
+;; ##top-cte-add-macro-no-dups!
+;; couldn't i just used define-runtime-macro
+;; and define-runtime-syntax
+
+
+@could-this-be-used-to-replace-the-ugly-parameterize-around-load-unit!?
+(define-runtime-syntax ##this-source-file
+  (lambda (src)
+    (let ((path (##source-path src)))
+      (if path
+          (##make-source path (##source-locat src))
+          (##raise-expression-parsing-exception
+           'unknown-location
+           src)))))
+
+
+;; target IS REALLY FOR ios. it is NOT PART of the
+;; configuration that mostly defines the safety
+
+
+;; couldn't i use gambit to load the modules leading to
+;; the build system? so no need for load-unit, no need
+;; for digests, etc
+
+
+;; i would LOVE for .package to be 100% optional and not
+;; needed even to build a module
+
+
+;; enforced DAG somehow and zen.service for inversion of
+;; control
+
+
+;; HMMM MAYBE I'M SEEING IT WRONG. they are all part of
+;; the zen.ui module. all the definitions of zen.ui/foo
+;; go INTO the zen.ui outline. MAYBE seeing it like this
+;; makes everything fit into place!?
+
+
+;; the problem of zen.ui putting everything in one
+;; namespace and wanting the unresolved symbols is very
+;; tricky. not sure i really want to shove everything
+;; into one huge namespace
+;; - if i do maybe a solution comes from harnessing that
+;;   gambit namespaces work as catch all
+;; - else we keep modules as they are and maybe we enforce
+;;   that every unit inside a module can only export / import
+;;   another unit or a module that has to be listed in the
+;;   module or package or product dependencies so we can
+;;   enforce a proper dag
+
+
+;; when the time comes to make zen available cleanly to gambit
+;; users i think i found it! a user would clone and mu make and
+;; so i just have to generate _#.scm and .sld compatibility shims
+;; next to the module.o1
+
+
+@w
+(module zen.ui
+  (import
+    zen.core
+    zen.cairo
+    (defer zen.foreign))
+
+  (export
+    "window"
+    "button"
+    "label"
+    (defer "dialog/color")
+    (defer "dialog/font")
+    (defer "dialog/print")))
+
+
+;; rename unit-name and such to module in the kernel!?
+
+
+;; i want an explicit (unit ...) because it has a very
+;; distinct semantic from module
+
+
+;; zen.io seems a perfect candidate for a flat module
+
+
+;; #1 bring zen to perfection
+
+;; #2 bring debuggee to zen
+
+;; #3 bring all of jazz in as jazz.* so they can be
+;;    updated also with together
+
+
+;; target:product@configuration^image
+
+;; versions play a vital role that i may be able to redo
+;; in a better way but they cannot be casually scrapped
+
+
+;; embrace gambit's module management
+;; ##registered-modules and so on
+
+
+@w
+(##debug-modules?-set! #t)
+
+@w
+(let ((modref (##parse-module-ref name)))
+  (list (macro-modref-host modref) (macro-modref-tag modref) (macro-modref-rpath modref)))
+
+@w
+(let ((modref (##parse-module-ref 'foo/goo/baz)))
+  (let ((vec (##search-module modref)))
+    (##vector mod-dir
+              mod-filename-noext
+              ext
+              mod-path
+              port
+              root
+              path)
+    #("/Users/cartier/Devel/zen/app/stable/lib/foo/goo"
+      "baz"
+      (".zen" . #f)
+      "/Users/cartier/Devel/zen/app/stable/lib/foo/goo/baz.zen"
+      input-port
+      "/Users/cartier/Devel/zen/app/stable/lib"
+      ("goo" "foo"))))
+
+@w
+(##get-module-search-order)
+
+
+;; expansion of (import ea)
+@w (
+(##demand-module ea)
+(##namespace ("" (ea ea#ea)))
+;; expansion of (define-library (ea) ...)
+(##declare (block))
+(##supply-module ea)
+(##namespace ("ea#"))
+(##namespace
+ (""
+  floor-quotient
+  string->uninterned-keyword
+  current-directory))
+(define ea 45)
+(pp ea)
+(##namespace (""))
+)
+
+
+;; bazoo
+
+;; woo neely i want to be able to make a module with just one file
+
+
+;; ZEN
+;;   JAZZ
+;;     - kernel with prefix zen:
+;;     - unsafe layer and build safety
+;;     - full ownership of the walk
+;;     - types and skeleton pass
+;;     - unresolved symbols at walk
+;;     - module macro and syntax
+;;   NEW
+;;     - use latest gambit
+;;     - flat no-submodule modules
+;;     - modern up-down module dependencies
+;;     - r7rs compatible
+;;     - yoda integration
+;;       - no fake safe scripting
+;;       - no tools in the application
+;;       - no poluting app memory
+;;       - safe through restriction
+;;       - deep ai integration
+;;       - pair-programming with ai
+;;       - multi debugger human and ai
+;;     - awake as the prototype
+;;       - minimal depencies for ui
+;;       - ios android and web
+;;   TODO
+;;     - r7rs
+;;       - can be imported
+;;       - can import
+;;       - namespace
+;;       - module search
+;;     - jedi ai improvements
+;;     - separate mu build out of the kernel
+;;     - debuggee as a pure zen module
+;;     - can the zen: kernel be modularized
+;;   NOTES
+;;     - define-library can have cc-options and ld-options
+
+
+;; FRANCOIS
+;; - ,in equivalent for define-library (,lib !?)
+;;   - register-console-command (in the debuggee)
+;;   - ahhh why not simply like r7rs ,(in (a b c))
+
+
+;;;
+;;;; PROFILE
+;;;
+
+
+(module profile.zen.Zen jazz
+
+
+(import (irregex)
+        (jazz.application)
+        (jazz.application.services)
+        (jazz.cairo)
+        (jazz.catalog)
+        (jazz.clipboard)
+        (jazz.console)
+        (jazz.debuggee)
+        (jazz.debugger)
+        (jazz.editor.lisp)
+        (jazz.ide)
+        (jazz.ide.development)
+        (jazz.graphic)
+        (jazz.io)
+        (jazz.markup)
+        (jazz.network)
+        (jazz.platform)
+        (jazz.presence)
+        (jazz.process)
+        (jazz.profile)
+        (jazz.project)
+        (jazz.text)
+        (jazz.ui)
+        (jazz.ui.dialog)
+        (jazz.view)
+        (jazz.window)
+        (jedi)
+        (time))
+
+
+;;;
+;;;; Zen
+;;;
+
+
+(class Zen extends Jedi-Profile
+  
+  
+  (method override (test self)
+    (let ((dir {Directory Home "Devel" "gambit" "app" "latest" "lib"}))
+      (iterate-directory dir
+        (lambda (path kind)
+          (let ((file (new-file dir path)))
+            (when (extension=? (get-extension file) "scm")
+              (let ((base (get-base file)))
+                (when (ends-with? base "#")
+                  (call-with-input-file (parse file)
+                    (lambda (port)
+                      (let ((expr (read port)))
+                        (if (and (pair? expr)
+                                 (= 2 (length expr))
+                                 (eq? (car expr) '##namespace)
+                                 (let ((spec (cadr expr)))
+                                   (and (string? (car spec))
+                                        (every? symbol? (cdr spec)))))
+                            #f
+                          (unless (or (= 1 (length path))
+                                      (equal? (car path) "gambit"))
+                            (debug path)))))))))))
+        full?: #f
+        files?: #t
+        directories?: #f
+        recursive?: #t))))
+
+
+(register-profile-class Zen)
+
+
+(define-expression dependencies
+  dialect: scheme
+  walk: :keyword))

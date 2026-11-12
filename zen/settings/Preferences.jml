@@ -1,0 +1,63 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Jedi-Preferences
+;;;
+
+
+(data jedi.data.preferences
+
+
+(form
+  (<Jedi-Preferences>                                     toplevel-state: maximized active-bindings: jazz first-startup?: #f fullscreen-warned?: #t current-directory: {Directory :root "Users" "cartier" ".awake" "landscapes"}
+    (<aliases~>
+      (<Alias-Configuration>                              alias: World directory: {Directory Home "Devel" "world" "app" "devel"})
+      (<Alias-Configuration>                              alias: Together directory: {Directory Home "Devel" "together" "app" "devel"}))
+    (<favorites~>
+      (<Favorite-Configuration>                           shortcut: #\A)
+      (<Favorite-Configuration>                           shortcut: #\B target: {File Home ".together" "prod" "1.0.0" ".settings"})
+      (<Favorite-Configuration>                           shortcut: #\C target: {File Home ".together" "test" "1.0.0" ".settings"})
+      (<Favorite-Configuration>                           shortcut: #\D target: {File Home ".together" "devel" "1.0.0" ".settings"})
+      (<Favorite-Configuration>                           shortcut: #\E target: {File Home ".together" "stable" "1.0.0" ".settings"})
+      (<Favorite-Configuration>                           shortcut: #\F target: jazz.language.runtime.functional)
+      (<Favorite-Configuration>                           shortcut: #\G target: {File Home ".gambini"})
+      (<Favorite-Configuration>                           shortcut: #\H target: world.eval)
+      (<Favorite-Configuration>                           shortcut: #\I target: {File Home ".together" "devel" "1.0.0" "assets" "world" "script" "test" "init.jazz"})
+      (<Favorite-Configuration>                           shortcut: #\J target: {File Home ".jazz" "2.5.3" ".jazzini"})
+      (<Favorite-Configuration>                           shortcut: #\K target: {File Together "world" "devel" "Knowledge.ftx"})
+      (<Favorite-Configuration>                           shortcut: #\L target: {File Together "devel" "templates" "settings" ".together" "1.0.0" ".settings"})
+      (<Favorite-Configuration>                           shortcut: #\M)
+      (<Favorite-Configuration>                           shortcut: #\N target: {File Home "Devel" "neural" "neural.jazz"})
+      (<Favorite-Configuration>                           shortcut: #\O)
+      (<Favorite-Configuration>                           shortcut: #\P target: {File Profile "Zen.jazz"})
+      (<Favorite-Configuration>                           shortcut: #\Q target: jazz.test)
+      (<Favorite-Configuration>                           shortcut: #\R target: {File Home ".profilerc"})
+      (<Favorite-Configuration>                           shortcut: #\S)
+      (<Favorite-Configuration>                           shortcut: #\T target: {File Home "Devel" "together" "todo" "together.jazz"})
+      (<Favorite-Configuration>                           shortcut: #\U target: {Directory Home "Devel" "together" "todo"})
+      (<Favorite-Configuration>                           shortcut: #\V target: {File Home "Devel" "world" "devel" "lib" "world.client" "src" "world" "test.jazz"})
+      (<Favorite-Configuration>                           shortcut: #\W target: {File Profile "settings" "Workbench.jml"})
+      (<Favorite-Configuration>                           shortcut: #\X target: {File Profile "settings" "Preferences.jml"})
+      (<Favorite-Configuration>                           shortcut: #\Y target: {File Home ".yownu" "devel" "1.0.0" ".settings"})
+      (<Favorite-Configuration>                           shortcut: #\Z target: {File Home ".zen" ".zenini"})
+      (<Favorite-Configuration>                           shortcut: #\1 target: {File Home ".together" "devel" "1.0.0" "assets" "world" "script" "test" "test1.jazz"})
+      (<Favorite-Configuration>                           shortcut: #\2 target: {File Home ".together" "devel" "1.0.0" "assets" "world" "script" "test" "test2.jazz"})
+      (<Favorite-Configuration>                           shortcut: #\3 target: {File Home ".together" "devel" "1.0.0" "assets" "world" "script" "test" "test3.jazz"})
+      (<Favorite-Configuration>                           shortcut: #\4 target: {File Home ".together" "devel" "1.0.0" "assets" "world" "script" "test" "test4.jazz"})
+      (<Favorite-Configuration>                           shortcut: #\5 target: {File Home ".together" "devel" "1.0.0" "assets" "world" "script" "test" "test5.jazz"})
+      (<Favorite-Configuration>                           shortcut: #\6 target: {File Home ".together" "devel" "1.0.0" "assets" "world" "script" "test" "test6.jazz"})
+      (<Favorite-Configuration>                           shortcut: #\7 target: {File Home ".together" "devel" "1.0.0" "assets" "world" "script" "test" "test7.jazz"})
+      (<Favorite-Configuration>                           shortcut: #\8 target: {File Home ".together" "devel" "1.0.0" "assets" "world" "script" "test" "test8.jazz"})
+      (<Favorite-Configuration>                           shortcut: #\9 target: {File Home ".together" "devel" "1.0.0" "assets" "world" "script" "test" "test9.jazz"})
+      (<Favorite-Configuration>                           shortcut: #\0 target: {File Home ".together" "devel" "1.0.0" "assets" "world" "script" "test" "test0.jazz"}))
+    (<documents~>
+      (<console-text~>                                    pulse-caret?: #t auto-complete?: #t match-action: flash flash-delay: infinity)
+      (<jazz-text~>                                       pulse-caret?: #t auto-complete?: #t auto-complete-minimum: 3 match-action: flash flash-delay: infinity translate-keys?: #t)
+      (<scheme-text~>                                     pulse-caret?: #t auto-complete?: #t auto-complete-minimum: 3 match-action: flash flash-delay: infinity translate-keys?: #t))
+    (<tools~>
+      (<!>                      name: preferences-manager position: {Point 8 8} size: {Dimension 652 388})
+      (<search-manager~>
+        (<user~>                                          jazz-label: "Together" jazz-directories: (together:lib together:world:lib together:update:update together:jiri:jiri together:gaea:lib {Directory Home "Devel" "together" "worlds" "together" "assets"} {Directory Home ".together" "devel" "1.0.0" "assets"}) user-label: "Zones" user-directories: ({Directory Home "Devel" "together" "worlds" "together" "zones"} {Directory Home ".together" "devel" "1.0.0" "zones"}) user-extensions: ("world" "zone"))))
+    (<debug~>                                             evaluate-when: always)
+    (<inspector~>                                         ordering: natural))))

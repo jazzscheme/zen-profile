@@ -1,0 +1,20 @@
+;;;==============
+;;;  JazzScheme
+;;;==============
+;;;
+;;;; Workbench
+;;;
+
+
+(data jazz.ide.data.workbench
+
+
+(import (jazz.project)
+        (jazz.editor.jazz))
+
+
+(form
+  (<Workbench>            active?: #t
+    (<*>                  tag-reference: {File Home "Devel" "gambit" "debuggee" ".project"} active?: #t)
+    (<*>                  tag-reference: {File Home "Devel" "jedi" "app" "stable" ".project"} title: "jedi" active?: #t
+      (<!>     name: jazz active?: #f)))))
